@@ -34,6 +34,38 @@ public class UserService {
 		return repository.save(user);
 	}
 	
+	@GetMapping("/api/user")
+	public List<User> findAllUsers() {
+		return (List<User>) repository.findAll();
+	}
+	
+	@GetMapping("/api/user/{userId}")
+	public User findUserById(@PathVariable("userId") int userId) {
+		Optional<User> data = repository.findById(userId);
+		if(data.isPresent()) {
+			return data.get();
+		}
+		return null;
+	}
+	
+	@PutMapping("/api/user/{userId}")
+	public User updateUser(@PathVariable("userId") int userId, @RequestBody User newUser) {
+		Optional<User> data = repository.findById(userId);
+		if(data.isPresent()) {
+			User user = data.get();
+			user.setFirstName(newUser.getFirstName());
+			user.setLastName(newUser.getLastName());
+			user.setPassword(newUser.getPassword());
+			user.setEmail(newUser.getEmail());
+			user.setDob(newUser.getDob());
+			user.setPhone(newUser.getPhone());
+			repository.save(user);
+			return user;
+		}
+		return null;
+	}
+	
+	
 	@PostMapping("/api/login")
 
 	public User login(@RequestBody User user, HttpSession session, HttpServletResponse response) {
@@ -54,33 +86,7 @@ public class UserService {
 		return fetchedUser;
 	}
 
-	
-	@GetMapping("/api/user")
-	public List<User> findAllUsers() {
-		return (List<User>) repository.findAll();
-	}
-	
-	@PutMapping("/api/user/{userId}")
-	public User updateUser(@PathVariable("userId") int userId, @RequestBody User newUser) {
-		Optional<User> data = repository.findById(userId);
-		if(data.isPresent()) {
-			User user = data.get();
-			user.setFirstName(newUser.getFirstName());
-			repository.save(user);
-			return user;
-		}
-		return null;
-	}
-	
-	@GetMapping("/api/user/{userId}")
-	public User findUserById(@PathVariable("userId") int userId) {
-		Optional<User> data = repository.findById(userId);
-		if(data.isPresent()) {
-			return data.get();
-		}
-		return null;
-	}
-	
+	@GetMapping("/api/user/username/{username}")
 	public User findUserByUsername(String username) {
 		User user = null;
 		Iterable<User> result = repository.findUserByUsername(username);
@@ -91,6 +97,7 @@ public class UserService {
 		}
 		return user;
 	}
+	
 	
 	@PostMapping("/api/register")
 	public User register(@RequestBody User user, HttpSession session, HttpServletResponse response) {
