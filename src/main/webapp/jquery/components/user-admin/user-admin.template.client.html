@@ -3,46 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href=
+  "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <title>Insert title here</title>
   <script
           src="https://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
           crossorigin="anonymous"></script>
-
-  <script src="../../services/user.service.client.js"></script>
+   <script src="../../services/user.service.client.js"></script>
   <script src="user-admin.controller.client.js"></script>
 
 </head>
 <body>
 <div class="container">
   <h1 id="title">User Admin</h1>
+
   <table class="table">
     <thead>
       <tr>
         <th>Username</th>
         <th>Password</th>
+        <th></th>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>Role</th>
+        <th>&nbsp;</th>
         <th></th>
       </tr>
       <tr>
-        <th><input id="usernameFld" class="form-control" placeholder="jdoe"/></th>
+        <th><input id="usernameFld" class="form-control" placeholder="Username"/></th>
         <th><input id="passwordFld" class="form-control" type="password"/></th>
-        <th><input id="firstNameFld" class="form-control" placeholder="John"/></th>
-        <th><input id="lastNameFld" class="form-control" placeholder="Doe"/></th>
-        <th><button id="createUser" class="btn btn-success">Create</button></th>
+        <th> <input type="checkbox" onclick="revealPassword()"></th>
+
+		<script>
+		function revealPassword() {
+		    var x = document.getElementById("passwordFld");
+		    if (x.type === "password") {
+		        x.type = "text";
+		    } else {
+		        x.type = "password";
+		    }
+		}
+		</script>
+		
+        <th><input id="firstNameFld" class="form-control" placeholder="FirstName"/></th>
+        <th><input id="lastNameFld" class="form-control" placeholder="LastName"/></th>
+<th>
+  <select class="form-control" id="roleFld">
+    <option value="Faculty">Faculty</option>
+    <option value="Student">Student</option>
+  </select></th>
+        <!-- <th><button id="createUser" class="btn btn-success">Create</button></th> -->
+        <th>
+          			<span class="float-right" style="white-space: nowrap">
+          				<button class="btn"><i id="wbdv-search" class="fa-2x fa fa-search wbdv-search"></i></button>
+          				<button class="btn"><i id="wbdv-create" class="fa-2x fa fa-plus wbdv-create"></i></button>
+          				<button class="btn"><i id="wbdv-update" class="fa-2x fa fa-check wbdv-update"></i></button>
+          			</span>
+          		</th>
       </tr>
     </thead>
     <tbody>
       <tr class="template">
         <td class="username">alice</td>
-        <td>****</td>
-        <td>Alice</td>
-        <td>Wonderland</td>
-        <th>
-          <button class="delete btn btn-danger">Delete</button>
-          <button class="edit btn btn-danger">Edit</button>
-        </th>
+        <td><input class="form-control password" type="password"/></td>
+        <td></td>
+        <!-- <td class="password">ALWO</td> -->
+        <td class="firstName">Alice</td>
+        <td class="lastName">Wonderland</td>
+        <td class="role">Student</td>
+        <!-- <th>
+        <button class="delete btn btn-danger">Delete</button></th>
+          <th><button class="edit btn btn-danger">Edit</button>
+          </th> -->
+          <th>
+          				<button class="delete"><i id="wbdv-remove" class="fa-2x fa fa-times wbdv-remove"></i></button>
+          				<button class="edit"><i id="wbdv-edit" class="fa-2x fa fa-pencil wbdv-edit"></i></button>
+          			</th>
       </tr>
     </tbody>
     <tfoot></tfoot>
