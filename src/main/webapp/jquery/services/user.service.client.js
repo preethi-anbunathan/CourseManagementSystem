@@ -3,19 +3,26 @@ function UserServiceClient() {
     this.findAllUsers = findAllUsers;
     this.deleteUser = deleteUser;
     this.findUserById = findUserById;
+    this.findUserByUsername = findUserByUsername;
     this.updateUser = updateUser;
+    this.logoutUser = logoutUser;
     this.login = login;
     this.register=register;
     this.url =
         'http://localhost:8080/api/user';
     this.loginurl= "/api/login";
     this.registerurl = "/api/register";
+    this.logouturl = '/jquery/components/login/login.template.client.html';
     var self = this;
-
+    
     function login(username, password) {
 
         var user = new User(username,password, null, null, null, null, null, null);
-
+//    	var promise = findUserByUsername(username);
+//    	var user = promise.then(function (response) {
+//            return response.json();
+//        });
+    	console.log(user);
         var loginResponse = fetch(self.loginurl, {
             method : 'post',
             body: JSON.stringify(user),
@@ -34,6 +41,11 @@ function UserServiceClient() {
         return loginResponse;
     }
 
+    function logoutUser()
+    {
+    	$(location).attr('href', self.logouturl);
+    }
+    
     function updateUser(userId, user) {
         return fetch(self.url + '/' + userId, {
             method: 'put',
@@ -43,34 +55,49 @@ function UserServiceClient() {
             }
         })
         .then(function(response){
-            if(response.bodyUsed) {
+            if(response.ok) {
                 return response.json();
             } else {
                 return null;
             }
         });
     }
-
+    
     function findUserById(userId) {
         return fetch(self.url + '/' + userId)
             .then(function(response){
                 return response.json();
             });
-    }
+    }  
+    
+    function findUserByUsername(username) {
+        return fetch(self.url + '/username/' + username, {
+            method: 'get'
+        }).then(function(response){
+                if(response.status != 200){
+                    return null;
+                }
+                else{
+                    return response.json();
+                }
 
+
+            });
+    }
+    
     function deleteUser(userId) {
         return fetch(self.url + '/' + userId, {
             method: 'delete'
         })
     }
-
+    
     function findAllUsers() {
         return fetch(self.url)
             .then(function (response) {
                 return response.json();
             });
     }
-
+    
     function createUser(user) {
 
         return fetch(self.url, {
@@ -109,5 +136,4 @@ function UserServiceClient() {
 
 
     }
-
 }
