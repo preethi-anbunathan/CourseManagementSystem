@@ -2,7 +2,7 @@
     var $usernameFld, $passwordFld, $verifyPasswordFld;
     var $registerBtn, $loginLink;
     var $signupForm, $invalidPasswordMsg, $validPasswordMsg;
-    var redirecturl = '/jquery/components/profile/profile.template.client.html';
+    //var redirecturl = '/jquery/components/profile/profile.template.client.html';
     var loginPage='/jquery/components/login/login.template.client.html';
 
     var userService = new UserServiceClient();
@@ -48,7 +48,8 @@
             if (window.sessionStorage) {
                 sessionStorage.setItem("userId", user.id.toString());
             }
-            $(location).attr('href', redirecturl);
+            console.log(user.id);
+            window.location='/jquery/components/profile/profile.template.client.html?userId=' + user.id;
         }else if(user==null){
             $('.alert').css('visibility','visible');
         }
