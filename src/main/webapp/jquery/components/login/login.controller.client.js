@@ -28,11 +28,16 @@
 
     function success(response){
         if(response!=null){
-            if (window.sessionStorage) {
-                sessionStorage.setItem("userId", response.id.toString());
-            }
-            $(location).attr('href', redirecturl);
-        }else{
+        	var userId = response.valueOf();
+            console.log(userId);
+            window.location='/jquery/components/profile/profile.template.client.html?userId=' + userId.id;
+//            if (window.sessionStorage) {
+//                sessionStorage.setItem("userId", response.id.toString());
+//            }
+//            $(location).attr('href', redirecturl);
+        }
+        
+        else{
             $('.alert').css('visibility','visible');
         }
 
