@@ -46,21 +46,16 @@ function UserServiceClient() {
     	$(location).attr('href', self.logouturl);
     }
     
-    function updateUser(userId, user) {
-        return fetch(self.url + '/' + userId, {
+    function updateUser(userId,user) {
+        return fetch(self.url+"/"+userId, {
             method: 'put',
             body: JSON.stringify(user),
             headers: {
-                'content-type': 'application/json'
+                'content-type' : 'application/json'
             }
+        }).then(function (response) {
+            return response.json();
         })
-        .then(function(response){
-            if(response.ok) {
-                return response.json();
-            } else {
-                return null;
-            }
-        });
     }
     
     function findUserById(userId) {
@@ -69,6 +64,8 @@ function UserServiceClient() {
                 return response.json();
             });
     }  
+    
+    
     
     function findUserByUsername(username) {
         return fetch(self.url + '/username/' + username, {
