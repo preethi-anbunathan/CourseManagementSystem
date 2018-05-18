@@ -1,3 +1,8 @@
 body{
-    background-color: #eaeae1;
+   background-position: center center;
+	background-attachment: fixed;
+	background-image:url("../../../image/BackgroundImg.png");
+	background-size: cover ;	
+	background-repeat: no-repeat;
+	background-color: #fff;
 }

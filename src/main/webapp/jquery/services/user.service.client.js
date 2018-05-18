@@ -8,8 +8,7 @@ function UserServiceClient() {
     this.logoutUser = logoutUser;
     this.login = login;
     this.register=register;
-    this.url =
-        'http://localhost:8080/api/user';
+    this.url ="/api/user";
     this.loginurl= "/api/login";
     this.registerurl = "/api/register";
     this.logouturl = '/jquery/components/login/login.template.client.html';
@@ -18,10 +17,6 @@ function UserServiceClient() {
     function login(username, password) {
 
         var user = new User(username,password, null, null, null, null, null, null);
-//    	var promise = findUserByUsername(username);
-//    	var user = promise.then(function (response) {
-//            return response.json();
-//        });
     	console.log(user);
         var loginResponse = fetch(self.loginurl, {
             method : 'post',

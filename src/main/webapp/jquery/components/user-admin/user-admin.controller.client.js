@@ -12,8 +12,6 @@
     function main() {
         tbody = $('tbody');
         template = $('.template');
-        //$editBtn = $("#wbdv-update");
-        //$('#createUser').click(createUser);
         $('#wbdv-create').click(createUser);
         $('#wbdv-update').click(updateUser);
         findAllUsers();
@@ -105,8 +103,7 @@
         })
         
         console.log(userId);
-       // $(location).attr('href', '/jquery/components/profile/profile.template.client.html?userId=' + userId);
-        
+      
     }
     
     function findUserById(userId) {

@@ -59,6 +59,7 @@ public class UserService {
 			user.setEmail(newUser.getEmail());
 			user.setDob(newUser.getDob());
 			user.setPhone(newUser.getPhone());
+			user.setRole(newUser.getRole());
 			repository.save(user);
 			return user;
 		}

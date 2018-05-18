@@ -1,0 +1,32 @@
+body{
+   background-position: center center;
+	background-attachment: fixed;
+	background-image:url("image/BackgroundImg.png");
+	background-size: cover ;	
+	background-repeat: no-repeat;
+	background-color: #fff;
+}
+
+/* Header/Blog Title */
+.header {
+    padding: 10px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 50px;
+}
+
+a:link, a:visited {
+    background-color: ;
+    font-size: 20px;
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: black;
+}

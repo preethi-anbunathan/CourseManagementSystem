@@ -31,10 +31,6 @@
         	var userId = response.valueOf();
             console.log(userId);
             window.location='/jquery/components/profile/profile.template.client.html?userId=' + userId.id;
-//            if (window.sessionStorage) {
-//                sessionStorage.setItem("userId", response.id.toString());
-//            }
-//            $(location).attr('href', redirecturl);
         }
         
         else{

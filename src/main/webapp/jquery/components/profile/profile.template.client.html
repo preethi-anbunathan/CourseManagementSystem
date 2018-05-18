@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="profile.style.client.css" rel="stylesheet" />
-<title>Insert title here</title>
+<link rel="stylesheet" href="profile.style.client.css" rel="stylesheet"/>
+<title>Course Management</title>
   <script
           src="https://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -12,52 +12,68 @@
 
   <script src="../../services/user.service.client.js"></script>
   <script src="profile.controller.client.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
 <body>
   <div class="container">
-    <h1 id="title">Profile</h1>
+    <h1 id="title"> <font color="white"> Profile</font></h1>
 
-    <form>
+    <form name="profile">
       <div class="form-group row">
-        <label for="userName" class="col-sm-2 col-form-label">User Name</label>
+        <label for="userName" class="col-sm-2 col-form-label">
+        <b> <font color="white">Username </font></b></label>
         <div class="col-sm-10">
-          <input type="text" readonly class="form-control" id="userName" value="User Name">
+          <input type="text" readonly class="form-control" id="userName" name="userName" value="User Name" placeholder="Username">
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+        <label for="inputPassword" class="col-sm-2 col-form-label">
+        <b> <font color="white">Password</font></b></label>
         <div class="col-sm-10">
           <input type="password" class="form-control" id="inputPassword" placeholder="Password">
         </div>
       </div>
+      <div id="password-message" style="visibility: hidden">
+                   <b> <font color="red"> Please enter a valid Password!</font></b>
+                </div>
       <div class="form-group row">
         <label for="firstName" class="col-sm-2 col-form-label">
-          First Name
+          <b> <font color="white">First Name</font></b>
         </label>
         <div class="col-sm-10">
           <input type="text"
                  class="form-control"
+                 name="firstName"
                  id="firstName"
                  placeholder="First name">
         </div>
       </div>
+       <div id="firstName-message" style="visibility: hidden">
+                    <b> <font color="red">Please enter a valid First name!</font></b>
+                </div>
       <div class="form-group row">
         <label for="lastName"
                class="col-sm-2 col-form-label">
-          Last Name
+         <b> <font color="white"> Last Name</font></b>
         </label>
         <div class="col-sm-10">
           <input type="text"
                  class="form-control"
+                 name="lastName"
                  id="lastName"
                  placeholder="Last name">
         </div>
         </div>
-              <div class="form-group row">
+        <div id="lastName-message" style="visibility: hidden">
+                    <b> <font color="red">Please enter a valid Last name!</font></b>
+                </div>
+        <div class="form-group row">
         <label for="dob"
                class="col-sm-2 col-form-label">
-          Date of Birth
+          <b> <font color="white">Date of Birth</font></b>
         </label>
         <div class="col-sm-10">
           <input type="date"
@@ -66,22 +82,29 @@
                  placeholder="Date of Birth">
         </div>
         </div>
+        <div id="dob-message" style="visibility: hidden">
+                    <b> <font color="red">Please enter a valid Date of birth!</font></b>
+                </div>
         <div class="form-group row">
         <label for="email"
                class="col-sm-2 col-form-label">
-          Email Address
+          <b> <font color="white">Email Address</font></b>
         </label>
         <div class="col-sm-10">
           <input type="text"
                  class="form-control"
                  id="email"
+                 data-validation="email"
                  placeholder="Email">
         </div>
         </div>
+        <div id="email-message" style="visibility: hidden">
+                    <b> <font color="red">Please enter a valid email!</font></b>
+                </div>
         <div class="form-group row">
         <label for="phone"
                class="col-sm-2 col-form-label">
-          Phone number 
+          <b> <font color="white">Phone number </font></b>
         </label>
         <div class="col-sm-10">
           <input type="text"
@@ -90,19 +113,26 @@
                  placeholder="Phone number">
         </div>
         </div>
+        <div id="phone-message" style="visibility: hidden">
+                    <b> <font color="red">Please enter a valid phone number!</font></b>
+                </div>
                <div class="form-group row">
         <label for="role"
                class="col-sm-2 col-form-label">
-          Role 
+          <b> <font color="white">Role</font></b> 
         </label>
         <div class="col-sm-10">
           <select class="form-control" id="role">
-          <option disabled selected value> -- Select Role -- </option>
+          <option disabled selected value=""> -- Select Role -- </option>
     <option value="Faculty">Faculty</option>
     <option value="Student">Student</option>
+    <option value="Admin">Admin</option>
   </select>
         </div>
       </div>
+      <div id="role-message" style="visibility: hidden">
+                    <b> <font color="red">Please select valid role!</font></b>
+                </div>
       <div class="form-group row">
       <label 
                class="col-sm-2 col-form-label">
@@ -130,5 +160,6 @@
     </form>
 
   </div>
+  
 </body>
 </html>

@@ -5,8 +5,8 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
 <link rel="stylesheet" href=
   "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  <link href="user-admin.style.client.css" rel="stylesheet" />
-<title>Insert title here</title>
+ <link href="user-admin.style.client.css" rel="stylesheet" />
+<title>Course Management</title>
   <script
           src="https://code.jquery.com/jquery-3.3.1.min.js"
           integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -17,17 +17,17 @@
 </head>
 <body>
 <div class="container">
-  <h1 id="title">User Admin</h1>
+  <h1 id="title"><font color="white">User Admin</font></h1>
 
   <table class="table">
     <thead>
       <tr>
-        <th>Username</th>
-        <th>Password</th>
+        <th><b> <font color="white">Username</font></b></th>
+        <th><b> <font color="white">Password</font></b></th>
         <th></th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Role</th>
+        <th><b> <font color="white">First Name</font></b></th>
+        <th><b> <font color="white">Last Name</font></b></th>
+        <th><b> <font color="white">Role</font></b></th>
         <th>&nbsp;</th>
         <th></th>
       </tr>
@@ -53,6 +53,7 @@
   <select class="form-control" id="roleFld">
     <option value="Faculty">Faculty</option>
     <option value="Student">Student</option>
+    <option value="Admin">Admin</option>
   </select></th>
         <!-- <th><button id="createUser" class="btn btn-success">Create</button></th> -->
         <th>
@@ -66,17 +67,13 @@
     </thead>
     <tbody>
       <tr class="template">
-        <td class="username">alice</td>
-        <td><input class="form-control password" type="password"/></td>
+        <td class="username" style="color:white">alice</td>
+        <td style="color:white"><input class="form-control password" type="password"/></td>
         <td></td>
         <!-- <td class="password">ALWO</td> -->
-        <td class="firstName">Alice</td>
-        <td class="lastName">Wonderland</td>
-        <td class="role">Student</td>
-        <!-- <th>
-        <button class="delete btn btn-danger">Delete</button></th>
-          <th><button class="edit btn btn-danger">Edit</button>
-          </th> -->
+        <td class="firstName" style="color:white">Alice</td>
+        <td class="lastName" style="color:white">Wonderland</td>
+        <td class="role" style="color:white">Student</td>
           <th>
           				<button class="delete"><i id="wbdv-remove" class="fa-2x fa fa-times wbdv-remove"></i></button>
           				<button class="edit"><i id="wbdv-edit" class="fa-2x fa fa-pencil wbdv-edit"></i></button>
