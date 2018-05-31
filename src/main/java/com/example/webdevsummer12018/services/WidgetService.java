@@ -66,7 +66,7 @@ public class WidgetService {
 		Optional<Topic> data = topicRepository.findById(topicId);
 		if(data.isPresent()) {
 			Topic course = data.get();
-			return course.getWidgets();
+			return widgetRepository.findAllWidgetsByTopicSorted(course);
 		}
 		return null;		
 	}

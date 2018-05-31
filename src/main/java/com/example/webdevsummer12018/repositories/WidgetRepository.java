@@ -20,5 +20,8 @@ public interface WidgetRepository extends CrudRepository<Widget,Integer>{
 	void deleteWidgetsByLessonId(
 		@Param("topicId") int topicId);
 	
+	@Query("SELECT w from Widget w WHERE w.topic=:topic ORDER BY w.id")
+	List<Widget> findAllWidgetsByTopicSorted(@Param("topic") Topic topic);
+	
 
 }
