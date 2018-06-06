@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Course {
@@ -26,6 +27,7 @@ public class Course {
 	private Date modified;
 	
 	@OneToMany(mappedBy="course")
+	@JsonIgnore
 	private List<Module> modules;
 	
 	@ManyToOne

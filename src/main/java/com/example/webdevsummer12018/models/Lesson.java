@@ -24,15 +24,17 @@ public class Lesson {
 	private Module module;
 	
 	@OneToMany(mappedBy="lesson")
-	private List<Topic> topic;
+	@JsonIgnore
+	private List<ExamWidget> examWidget;
+	//private List<Topic> topic;
 
-	public List<Topic> getTopic() {
-		return topic;
-	}
-
-	public void setTopic(List<Topic> topic) {
-		this.topic = topic;
-	}
+//	public List<Topic> getTopic() {
+//		return topic;
+//	}
+//
+//	public void setTopic(List<Topic> topic) {
+//		this.topic = topic;
+//	}
 
 	public int getId() {
 		return id;
@@ -56,6 +58,14 @@ public class Lesson {
 
 	public void setModule(Module module) {
 		this.module = module;
+	}
+	
+	public List<ExamWidget> getExamWidget() {
+		return examWidget;
+	}
+
+	public void setExamWidget(List<ExamWidget> examWidget) {
+		this.examWidget = examWidget;
 	}
 
 }

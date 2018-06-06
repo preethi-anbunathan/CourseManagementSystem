@@ -53,13 +53,13 @@ public class TopicService {
 		return topicRepository.findAll();
 	}
 	
-	@GetMapping("/api/course/{courseId}/module/{moduleId}/lesson/{lessonId}/topic")
-	public List<Topic> findAllTopicForLesson(@PathVariable("lessonId") int lessonId) {
-		Optional<Lesson> data = lessonRepository.findById(lessonId);
-		if(data.isPresent()) {
-			Lesson lesson = data.get();
-			return lesson.getTopic();
-		}
-		throw new IllegalArgumentException("Invalid module");
-	}
+//	@GetMapping("/api/course/{courseId}/module/{moduleId}/lesson/{lessonId}/topic")
+//	public List<Topic> findAllTopicForLesson(@PathVariable("lessonId") int lessonId) {
+//		Optional<Lesson> data = lessonRepository.findById(lessonId);
+//		if(data.isPresent()) {
+//			Lesson lesson = data.get();
+//			return lesson.getTopic();
+//		}
+//		throw new IllegalArgumentException("Invalid module");
+//	}
 }
