@@ -150,17 +150,17 @@ public class ExamService {
 		if(data.isPresent()) {
 			Exam exam = data.get();
 			tlist.addAll(exam.getQuestions()) ;
+		}
 			for(Question beq: tlist) {
-				if(beq.getType() != "TrueOrFalse")
+				if(beq.getType().equals("TrueOrFalse"))
 				{
-					tlist.remove(beq);
+					list.add(beq);
 				}
 				
 			}
 			
-			return tlist;
-		}
-		return list;		
+			return list;
+			
 	}
 	
 	@GetMapping("/api/exam/{examId}/multi")
@@ -172,17 +172,16 @@ public class ExamService {
 		if(data.isPresent()) {
 			Exam exam = data.get();
 			tlist.addAll(exam.getQuestions()) ;
+		}
 			for(Question beq: tlist) {
-				if(beq.getType() != "MultipleChoice")
+				if(beq.getType().equals("MultipleChoice"))
 				{
-					tlist.remove(beq);
+					list.add(beq);
 				}
 				
 			}
 			
-			return tlist;
-		}
-		return list;		
+			return list;		
 	}
 	
 	@GetMapping("/api/exam/{eid}/essay")
@@ -194,17 +193,16 @@ public class ExamService {
 		if(data.isPresent()) {
 			Exam exam = data.get();
 			tlist.addAll(exam.getQuestions()) ;
+		}
 			for(Question beq: tlist) {
-				if(beq.getType() != "Essay")
+				if(beq.getType().equals("Essay"))
 				{
-					tlist.remove(beq);
+					list.add(beq);
 				}
 				
 			}
 			
-			return tlist;
-		}
-		return list;		
+			return list;		
 	}
 	
 	@GetMapping("/api/exam/{eid}/blanks")
@@ -216,17 +214,17 @@ public class ExamService {
 		if(data.isPresent()) {
 			Exam exam = data.get();
 			tlist.addAll(exam.getQuestions()) ;
+		}
 			for(Question beq: tlist) {
-				if(beq.getType() != "FillInTheBlanks")
+				if(beq.getType().equals("FillInTheBlanks"))
 				{
-					tlist.remove(beq);
+					list.add(beq);
 				}
 				
 			}
 			
-			return tlist;
-		}
-		return list;		
+			return list;
+			
 	}
 	
 	
