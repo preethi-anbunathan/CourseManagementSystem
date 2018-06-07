@@ -4,11 +4,13 @@ import javax.persistence.Entity;
 
 @Entity
 public class TrueFalseQuestion extends Question {
-	private boolean isTrue;
-	public boolean isTrue() {
-		return isTrue;
+	private boolean answer;
+
+	public boolean isAnswer() {
+		return answer;
 	}
-	public void setTrue(boolean isTrue) {
-		this.isTrue = isTrue;
+
+	public void setAnswer(boolean answer) {
+		this.answer = answer;
 	}
 }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 public class Assignment extends ExamWidget {
-	private int points=0;
+	private int points;
 	 private String essayAnswer;
 	 private String uploadFileLink;
 	 private String link;
