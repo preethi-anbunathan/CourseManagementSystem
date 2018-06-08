@@ -62,7 +62,9 @@ public class ExamWidgetService {
 				
 			}
 			
-			return list;	
+			return list;
+			
+		
 	}
 	
 	@PostMapping("/api/lesson/{lessonId}/exam")

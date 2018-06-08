@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,7 @@ import com.example.webdevsummer12018.models.Lesson;
 import com.example.webdevsummer12018.models.MultipleChoiceQuestion;
 import com.example.webdevsummer12018.models.Question;
 import com.example.webdevsummer12018.models.TrueFalseQuestion;
+import com.example.webdevsummer12018.models.Widget;
 import com.example.webdevsummer12018.models.ExamWidget;
 import com.example.webdevsummer12018.repositories.ExamRepository;
 import com.example.webdevsummer12018.repositories.LessonRepository;
@@ -69,6 +71,23 @@ public class ExamService {
 			return optional.get();
 		}
 		return null;
+	}
+	
+	@PutMapping("/api/truefalse/{questionId}")
+	public TrueFalseQuestion updateTruefalse(
+			@PathVariable("questionId") int questionId,
+			@RequestBody TrueFalseQuestion newTruefalse) {
+		Optional<TrueFalseQuestion> data = trueFalseRepository.findById(questionId);
+		if(data.isPresent()) {
+			TrueFalseQuestion ques = data.get();
+			ques.setAnswer(newTruefalse.isAnswer());
+			ques.setDesciption(newTruefalse.getDesciption());
+			ques.setPoints(newTruefalse.getPoints());
+			ques.setTitle(newTruefalse.getTitle());
+			trueFalseRepository.save(ques);
+			return ques;
+		}
+		return null;		
 	}
 	
 	@GetMapping("/api/essay/{questionId}")

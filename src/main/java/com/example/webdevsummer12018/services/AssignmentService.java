@@ -33,7 +33,7 @@ public class AssignmentService {
 		return (List<Assignment>) assignmentRepository.findAll();
 	}
 
-	@GetMapping("/api/assignment/{id}")
+	@GetMapping("/api/assign/{id}")
 	public Assignment findAssignmentById(@PathVariable("id") int aid) {
 		Optional<Assignment> data = assignmentRepository.findById(aid);
 		if(data.isPresent()) {
@@ -84,7 +84,7 @@ public class AssignmentService {
 		}
 		return null;		
 	}
-	
+
 	@PutMapping("/api/assignment/{id}")
 	public Assignment updateAssignment(@PathVariable("id") int aid, @RequestBody Assignment newAssignment) {
 		Optional<Assignment> data = assignmentRepository.findById(aid);
@@ -99,6 +99,8 @@ public class AssignmentService {
 		}
 		return null;
 	}
+
+	
 
 
 
